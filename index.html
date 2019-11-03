@@ -13,12 +13,20 @@
 
 
         {
-            const btn = document.querySelector('button');
             // buttonに対してaddEventListener
+            const btn = document.querySelector('button');
+            // 音声認識のためのオブジェクトを取得
+            const speech = new webkitSpeechRecognition();
+            // 言語設定
+            speech.lang = 'ja-JP';
             // クリックた時に以下の処理をしなさい
             btn.addEventListener('click', () => {
                 // 動作確認のため
-                console
+                // console.log('button clicked!');
+                // ボタンをクリックしたら、音声認識を開始
+                // ボタンのに通しで２回スタートしてしまわないように
+                btn.disabled = true;
+                speech.start();
             })
 
         }
